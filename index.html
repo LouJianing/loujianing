@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" 适配代码-->
+    <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <!--link 链接外部文件的标签-->
+    <link rel="short icon" href="Resource/icon.png">
+    <!--小图标-->
+    <link rel="stylesheet" href="ExternolStyle.css">
+    <script type="text/javascript" src="CommondClass.js"></script>
+    <!--用相对路径-->
+    <title>华杉科技（娄嘉宁）</title>
+
+    <style>
+        .l1_div{
+            width: 100%;
+            height: 200px;
+        }
+        .head_div{
+            float: left;
+            margin-left: 180px;
+            margin-top: 85px;
+        }
+
+        .L_form_div{
+            width: 100%;
+        }
+        .L_form_inner_div{
+            width: 90%;
+            margin: 0 auto;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            background: white;
+            height: 100px;
+        }
+        .L_form_inner_div div {
+            height: 50px;
+            border: 1px solid #cccccc;
+        }
+        .L_form_inner_div div span{
+            padding-left: 15px;
+            font-size: 20px;
+            line-height: 50px;
+        }
+        .input{
+            outline: medium;
+        }
+
+        .ex_div{
+            width: 90%;
+            height: 50px;
+            background: rgb(36,92,161);
+            border-radius: 10px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+
+        .L_login_div input{
+            font-size: 20px;
+            line-height: 50px;
+            height: 50px;
+
+        }
+        .L_login_btn
+        {
+            color: white;
+            background: rgb(36,92,161);
+            border: 0px ;
+    </style>
+
+</head>
+<body>
+
+<header>
+    <!--span用来搬小量文字的标签-->
+    <span>登录<span>
+</header>
+
+<div class="l1_div">
+        <img class="head_div" src="Resource/head.png" alt="">
+</div>
+
+<form action="">
+    <div class="L_form_div">
+        <div class="L_form_inner_div">
+            <div>
+                <span>用户名</span>
+                <input class="input" type="text" id="L_account"><br>
+            </div>
+            <div>
+                <span>密    码</span>
+                <input class="input" type="password" id="L_pwd"><br>
+            </div>
+        </div>
+    </div>
+        <div class="ex_div">
+            <div class="L_login_div">
+                <input class="L_login_btn" type="button" value="登录" id="btn">
+            </div>
+        </div>
+</form>
+
+<script>
+    // 获取登录按钮
+    var btn = document.querySelector("#btn");
+
+    // 注册点击事件
+    btn.onclick = function () {
+        var userName = encodeURIComponent(document.querySelector("#L_account").value);
+        var password = encodeURIComponent(document.querySelector("#L_pwd").value);
+
+        var par2 = "username=" + userName + "&pwd=" + password;
+
+        requestMethod('login', par2, 'post', function (returnStr) {
+            if (returnStr == "登录成功") {
+
+                window.localStorage.setItem("userName", userName);
+
+                location.href = "DropletService.html";
+            } else {
+                alert(returnStr);
+            }
+        });
+    }
+
+
+
+    //  var loginPress=function ()
+   //  {
+   //  var userName = encodeURIComponent ( document. querySelector("#L_account") . value);
+   //  var password = encodeURIComponent ( document. querySelector("#L_pwd") .value);
+   //  //第一步:创建请求对旬xhr
+   //  var xhr = new XMLHttpRequest();
+   //  //第二步:建立与服务端的连接(get/post)
+   //  xhr. open( 'post', 'https://mockapi.eolinker.com/2ZhGVxjacb39010e6753bd9c02ee803e6e3bfeab6e8007c/login');
+   //
+   //  //设置头信息,让数据以表单的形式传递给服务器
+   //  xhr. setRequestHeader("content- -type", "application/x-www-form-urlencoded");
+   //  //第三步发送请求
+   //  xhr . send ( "username="+userName+"&pwd="+password);
+   //  //第四步接收服务端返回的数据
+   // xhr.onreadystatechange = function(){
+   //      //readyState == 4代表ajax数据请求已经完成
+   //      //status == 200表示数据成功返回
+   //      if (xhr.readyState==4 && xhr.status==200){
+   //          // responseText中包含了服务端返回的数据
+   //          var res = JSON. parse(xhr.responseText);
+   //          var str = res . data;
+   //          if (str =="登录成功)
+   //          {
+   //              location.href = "DropletService.htmL" ;
+   //          }else
+   //          {
+   //              alert(str);
+   //          }
+   //      }
+   //  }
+
+
+
+
+    // var loginPress=function () {
+    //     var account=encodeURIComponent(document.querySelector("#L_account").value);
+    //     var pwd=encodeURIComponent(document.querySelector("#L_pwd").value);
+    //     if (account=="hskj"&&pwd=="123456"){
+    //         window.location.href="DropletService.html";
+    //     }
+    //     else{
+    //         window.location.href="http://www.huashankeji.com";
+    //     }
+    // }
+</script>
+
+</body>
+</html>

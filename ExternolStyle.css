@@ -1,0 +1,77 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: rgb(244,244,246);
+
+    padding-top:44px;
+    padding-bottom:50px;
+}
+
+/*定位：固定定位、绝对定位
+1.确定元素的位置（x,y）
+2.确定元素宽高
+3.加个螺丝钉
+4.把被遮挡的元素露出来
+*/
+header{
+    background: rgb(40,133,202);
+    color: white;
+    text-align: center;
+    line-height: 44px;
+    font-size: 18px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+
+}
+.DS_section img
+{
+    width: 100%;
+    margin-bottom: -6px;
+}
+h5{
+    text-align: center;
+}
+.DS_section p{
+    font-size: 15px;
+}
+footer{
+    display: table;
+    width:100%;
+    background: black;
+    height: 50px;
+    left: 0;
+    bottom:0;
+    position: fixed;
+
+}
+ footer a {
+    display: table-cell;
+    width: 20%;
+    text-align: center;
+    vertical-align: middle;/*竖直居中*/
+    text-decoration: none;
+     color: white;
+}
+footer a span{
+    display: block;
+}
+footer img{
+    width: 18px;
+}
+section{
+    display: table;
+    width:100%;
+}
+section a{
+    display: table-cell;
+    width: 33.3%;
+    text-decoration: none;
+    font-size: 20px;
+    text-align: center;
+    color: black;
+}

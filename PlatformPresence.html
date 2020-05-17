@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" 适配代码-->
+    <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <!--link 链接外部文件的标签-->
+    <link rel="short icon" href="Resource/icon.png">
+    <!--小图标-->
+    <link rel="stylesheet" href="ExternolStyle.css">
+    <script type="text/javascript" src="CommondClass.js"></script>
+    <!--用相对路径-->
+    <title>华杉科技（娄嘉宁）</title>
+
+    <style>
+        article{
+            margin: 20px;
+        }
+        h3{
+            color: red;
+            font-size: 18px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #dddddd;/*边框线*/
+        }
+        h4{
+            font-size: 14px;
+        }
+        article p{
+            font-size: 12px;
+            text-indent:2em;/*首行缩进*/
+            line-height: 2em;/*行高*/
+        }
+    </style>
+</head>
+<body>
+
+<!--第一部分-->
+<header>
+    <!--span用来搬小量文字的标签-->
+    <span>平台风采</span>
+</header>
+
+<!--第二部分-->
+<section class="DS_section">
+    <img src="Resource/banner4.png" alt="">
+</section>
+
+<!--第三部分-->
+<article>
+    <!--h1-h6字体减小-->
+    <h3 id="title"></h3>
+    <h4 id="subTitle"></h4>
+    <p id="info"></p>
+</article>
+<script>
+    requestMethod('aboutus', "", 'get', function(returnStr){
+
+        var title_content = document.getElementById("title");
+        var subTitle_content = document.getElementById("subTitle");
+        var info_content = document.getElementById("info");
+
+        title_content.innerHTML = returnStr.title;
+        subTitle_content.innerHTML = returnStr.subTitle;
+        info_content.innerHTML = returnStr.info;
+    });
+
+</script>
+<!--第四部分-->
+<footer>
+    <a href="DropletService.html"><img src="Resource/nav10.png" alt=""><span>小滴服务</span></a>
+    <a href="InnovationProgram.html"><img src="Resource/nav20.png" alt=""><span>企业项目</span></a>
+    <a href="ServiceProcess.html"><img src="Resource/nav30.png" alt=""><span>服务流程</span></a>
+    <a href="PlatformPresence.html"><img src="Resource/nav41.png" alt=""><span style="color: red">平台风采</span></a>
+    <a href="MyXiaodi.html"><img src="Resource/nav50.png" alt=""><span>我的小滴</span></a>
+</footer>
+
+</body>
+</html>
